@@ -405,3 +405,29 @@ Tradeoffs:
 - Health: `http://localhost:3001/health`
 - API base: `http://localhost:3001`
 - Demo script: [scripts/demo.js](scripts/demo.js)
+
+## Deployment
+
+### Deploy to Vercel
+1. Push your repository to GitHub (already done ✓)
+2. Go to [vercel.com](https://vercel.com)
+3. Sign in with GitHub
+4. Click "New Project"
+5. Select this repository: `finance-dashboard-system-backend`
+6. Environment variables:
+   - `MONGODB_URI`: use MongoDB Atlas free tier or local MongoDB
+   - `PORT`: 3000
+   - `NODE_ENV`: production
+7. Click "Deploy"
+8. Vercel will provide a live URL like: `https://finance-dashboard-system-backend.vercel.app`
+
+### Live Demo URL (when deployed)
+```
+Health: https://finance-dashboard-system-backend.vercel.app/health
+API Base: https://finance-dashboard-system-backend.vercel.app
+```
+
+### Important for Vercel + MongoDB
+- MongoDB Atlas free tier recommended (cloud MongoDB)
+- Set `MONGODB_URI` in Vercel project settings
+- Your local `.mongodb/` folder won't work on Vercel
