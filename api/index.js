@@ -18,6 +18,10 @@ async function getApp() {
 }
 
 module.exports = async (req, res) => {
+  if (req.url === '/health') {
+    return res.status(200).json({ status: 'ok', deployment: 'vercel' });
+  }
+
   const expressApp = await getApp();
   return expressApp(req, res);
 };
