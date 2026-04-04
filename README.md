@@ -131,6 +131,22 @@ Expected response:
 { "status": "ok" }
 ```
 
+## Deployment
+
+### Vercel + MongoDB Atlas
+This repository already includes Vercel serverless support through `api/index.js` and `vercel.json`.
+
+1. Create a MongoDB Atlas cluster and database user.
+2. Copy the Atlas connection string.
+3. Import the GitHub repository into Vercel.
+4. Set these environment variables in Vercel:
+  - `MONGODB_URI` = your Atlas connection string
+  - `NODE_ENV` = `production`
+  - `LOG_FORMAT` = `combined` or `common`
+5. Deploy the project.
+
+After deployment, verify the app with `GET /health`.
+
 ## Authentication Model
 This project uses a **mock authentication** approach for assessment purposes.
 
