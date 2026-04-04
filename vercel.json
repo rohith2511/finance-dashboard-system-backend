@@ -2,14 +2,29 @@
   "version": 2,
   "builds": [
     {
+      "src": "frontend",
+      "use": "@vercel/next"
+    },
+    {
       "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "^/_next/static/(.*)",
+      "dest": "frontend/_next/static/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "^/api/(.*)",
       "dest": "api/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend"
     }
   ],
   "env": {
